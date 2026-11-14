@@ -3,7 +3,7 @@
 int main(){
 	float salario, novo_salario;
 	
-	printf("Digite o sal·rio do funcion·rio: R$");
+	printf("Digite o sal√°rio do funcion√°rio: R$");
 	scanf("%f", &salario);
 	
 	if (salario <= 500){
@@ -19,7 +19,7 @@ int main(){
 		novo_salario = salario + 100;
 	}
 	
-	printf("Novo sal·rio: R$%.2f", novo_salario);
+	printf("Novo sal√°rio: R$%.2f", novo_salario);
 	
 	return 0;
 }
