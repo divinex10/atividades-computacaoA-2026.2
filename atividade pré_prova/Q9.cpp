@@ -5,7 +5,7 @@ int main(){
 	float numero;
 	char mensagem[100];
 	
-	printf("[1]Exibir mensagem\n[2]Calcular quadrado de um número\n[3]Calcular cubo de um número\nEscolha uma opção: ");
+	printf("[1]Exibir mensagem\n[2]Calcular quadrado de um nÃºmero\n[3]Calcular cubo de um nÃºmero\nEscolha uma opÃ§Ã£o: ");
 	scanf("%d", &escolha);
 	getchar();
 	
@@ -18,17 +18,17 @@ int main(){
 			break;
 		}
 		case 2:{
-			printf("Digite o número para elevar ao quadrado:");
+			printf("Digite o nÃºmero para elevar ao quadrado:");
 			scanf("%f",&numero);
 			
-			printf("%.0f ao quadrado é igual:%.0f ",numero,  numero * numero);
+			printf("%.0f ao quadrado Ã© igual:%.0f ",numero,  numero * numero);
 			break;
 		}
 		case 3:{
-			printf("Digite o número para elevar ao cubo: ");
+			printf("Digite o nÃºmero para elevar ao cubo: ");
 			scanf("%f",&numero);
 			
-			printf("%.0f ao quadrado é igual:%.0f ",numero, numero * numero * numero);
+			printf("%.0f ao quadrado Ã© igual:%.0f ",numero, numero * numero * numero);
 			break;
 		}
 		
