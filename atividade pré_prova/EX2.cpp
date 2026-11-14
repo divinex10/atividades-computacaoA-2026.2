@@ -12,14 +12,14 @@ int main(){
 	scanf("%f", &n3);
 	
 	media = (n1 + n2 + n3) / 3;
-	printf("Média final: %.2f", media);
+	printf("MÃ©dia final: %.2f", media);
 	
 	if(media >= 0 && media < 3){
-		printf("\nSituação: Reprovado!");
+		printf("\nSituaÃ§Ã£o: Reprovado!");
 	}else if(media >= 3 && media < 7){
-		printf("\nSituação: Exame!");
+		printf("\nSituaÃ§Ã£o: Exame!");
 	}else{
-		printf("\nSituação: Aprovado!");
+		printf("\nSituaÃ§Ã£o: Aprovado!");
 	}
 	
 	return 0;
