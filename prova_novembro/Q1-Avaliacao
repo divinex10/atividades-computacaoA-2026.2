@@ -1,0 +1,90 @@
+#include<stdio.h>
+//questão 1
+int main(){
+	int termo1, termo2, diferenca;
+	int quantidade_termos, conta_termo = 0;
+	int soma = 0, pares = 0, impares = 0;
+	
+	printf("Digite o primeiro termo da sequencia: ");
+	scanf("%i", &termo1);
+	printf("Digite o segundo termo da sequencia: ");
+	scanf("%i", &termo2);
+	printf("Digite a quantidade de termos da sequencia: ");
+	scanf("%i", &quantidade_termos);
+	if(quantidade_termos < 2 || quantidade_termos > 1000){
+		printf("Entrada Invalida");
+		return 1;
+	}
+	
+	if(termo1<termo2){
+		diferenca = termo2 - termo1;
+		for(termo1; conta_termo < quantidade_termos; termo1+=diferenca * 2){
+			printf("%i,", termo1);
+			if(termo1 % 2 == 0){
+				pares++;
+			}else{
+				impares++;
+			}
+			soma+=termo1;
+			conta_termo++;
+			for(termo2; termo2 <= termo1 + diferenca && conta_termo<quantidade_termos; termo2+= diferenca*2){
+				printf("%i,", termo2);
+				if(termo2 % 2 == 0){
+					pares++;
+				}else{
+					impares++;
+				}		
+				soma+=termo2;
+				conta_termo++;
+			}
+		}
+	}else if(termo1>termo2){
+		diferenca = termo1 - termo2;
+		for(termo1; conta_termo < quantidade_termos; termo1-=diferenca*2){
+			printf("%i,", termo1);
+			if(termo1 % 2 == 0){
+				pares++;
+			}else{
+				impares++;
+			}
+			soma+=termo1;
+			conta_termo++;
+			for(termo2; termo2 >= termo1 - diferenca && conta_termo<quantidade_termos; termo2-=diferenca*2){
+				printf("%i,", termo2);
+				if(termo2 % 2 == 0){
+					pares++;
+				}else{
+					impares++;
+				}
+				soma+=termo2;
+				conta_termo++;
+			}
+		}
+	}else{
+		for(termo1; conta_termo < quantidade_termos; termo1+= termo2){
+			printf("%i,", termo1);
+			if(termo1 % 2 == 0){
+				pares++;
+			}else{
+				impares++;
+			}
+			soma+=termo1;
+			conta_termo++;
+			for(termo2; termo2 == termo1  && conta_termo<quantidade_termos; termo2 += termo1){
+				printf("%i", termo2);
+				if(termo2 % 2 == 0){
+					pares++;
+				}else{
+					impares++;
+				}		
+				soma+=termo2;
+				conta_termo++;
+			}
+		}
+	}
+	
+	printf("\nSoma de todos os termos: %i\nTotal de termos pares: %i\nTotal de termos impares: %i", soma, pares, impares);	
+	
+	
+	return 0;
+}
