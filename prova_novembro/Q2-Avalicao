@@ -1,0 +1,162 @@
+#include<stdio.h>
+
+int main(){
+	float conta_a=1000, conta_b=1000, deposito, saque, transferencia;
+	int escolha, escolha_transferencia;
+	
+	do{
+		printf("MENU\n1-Consultar saldos\n2-Realizar depositos\n3-Realizar saque\n4-Realizar transferencia\n5-Sair\nEscolha uma opcao: ");
+		scanf("%i", &escolha);
+	
+		switch(escolha){
+			case 1:{
+				printf("SALDOS\n");
+				printf("Conta-A: R$%.2f\nConta-B: R$%.2f\n", conta_a, conta_b);
+				break;
+			}
+			case 2:{
+				printf("DEPOSITO\n");
+				printf("Para qual conta deseja depositar:\n1-Conta-A\n2-Conta-B\nEscolha uma opcao: ");
+				scanf("%i", &escolha);
+			
+				switch(escolha){
+					case 1:{
+						printf("Conta-A\nDigite o valor do deposito: ");
+						scanf("%f", &deposito);
+						if(deposito > 0){
+							conta_a+=deposito;
+							printf("Deposito realizado com sucesso.\n");
+						}else{
+							printf("Valo invalido para deposito.\n");
+						}
+						break;
+					}
+					case 2:{
+						printf("Conta-B\nDigite o valor do deposito: ");
+						scanf("%f", &deposito);
+						if(deposito > 0){
+							conta_b+=deposito;
+							printf("Deposito realizado com sucesso.\n");
+						}else{
+							printf("Valo invalido para deposito\n");
+						}
+						break;
+					}
+					default:{
+						printf("Conta invalida.\n");
+						break;
+					}
+				}
+				break;
+			}
+			case 3:{
+				printf("SAQUE\n");
+				printf("De qual conta deseja sacar:\n1-Conta-A\n2-Conta-B\nEscolha uma opcao: ");
+				scanf("%i", &escolha);
+				
+				switch(escolha){
+					case 1:{
+						do{
+							printf("Conta-A\nDigite o valor do saque: ");
+							scanf("%f", &saque);
+							if(saque == 0){
+								printf("Valor invalido. Tente novamente\n");
+							}
+						}while(saque == 0);
+						
+						if(saque <= conta_a){
+							conta_a-=saque;
+							printf("Saque realizado com sucesso.\n");
+						}else{
+							printf("Saldo indisponivel.\n");
+						}
+						break;
+					}
+					case 2:{
+						do{
+							printf("Conta-B\nDigite o valor do saque: ");
+							scanf("%f", &saque);
+							if(saque== 0){
+								printf("Valor invalido. Tente novamente\n");
+							}
+						}while(saque == 0);
+						
+						if(saque <= conta_b){
+							conta_b-=saque;
+							printf("Saque realizado com sucesso.\n");
+						}else{
+							printf("Saldo indisponivel\n");
+						}
+						break;
+					}
+					default:{
+						printf("Conta invaldia.\n");
+						break;
+					}
+				}
+				break;
+			}
+			
+			case 4:{
+				printf("TRANSFERENCIA\n");
+				printf("De qual conta deseja transferir:\n1-Conta-A\n2-Conta-B\nEscolha uma opcao: ");
+				scanf("%i", &escolha);
+				do{
+					printf("Para qual conta deseja transferir:\n1-Conta-A\n2-Conta-B\nEscolha uma opcao: ");
+					scanf("%i", &escolha_transferencia);
+					if(escolha_transferencia == escolha){
+						printf("Opcao invalida.\n");
+					}
+				}while(escolha_transferencia == escolha);
+				
+				do{
+					printf("Valor da transferencia: R$");
+					scanf("%f", &transferencia);
+					if(transferencia == 0){
+						printf("Valor invalido. Tente novamente.\n");
+					}
+				}while(transferencia == 0);
+				
+				
+				switch(escolha){
+					case 1:{
+						if(transferencia <= conta_a){
+							conta_a-=transferencia;
+							conta_b+=transferencia;
+							printf("Transferencia realizada com sucesso.\n");
+						}else{
+							printf("Saldo indisponivel.\n");
+						}
+						break;
+					}
+					case 2:{
+						if(transferencia <= conta_b){
+							conta_b-=transferencia;
+							conta_a+=transferencia;
+							printf("Transferencia realizada com sucesso.\n");
+						}else{
+							printf("Saldo indisponivel.\n");
+						}
+						break;
+					}
+					default:{
+						printf("Conta invalida.\n");
+						break;
+					}
+				}
+				break;
+			}
+			case 5:{
+				printf("Finalizando Programa\n");
+				break;
+			}
+			default:{
+				printf("Opcao invalida.\n");
+				break;
+			}
+			
+		}
+	}while(escolha!=5);
+	
+return 0;
+}
